@@ -29,10 +29,10 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight'
 import clsx from 'clsx';
 import { RouteComponentProps, withRouter, Switch, Route } from "react-router-dom";
-import { DataTable } from '../../components/DataTable';
-import { ContactForm } from '../ContactForm'
+import { DataTable } from '../DataTable';
+import { CarForm } from '../CarForm'
 
-interface PhonebookProps {
+interface CarInventoryProps {
     history: RouteComponentProps["history"];
     location: RouteComponentProps["location"];
     match: RouteComponentProps["match"];
@@ -168,7 +168,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
     },
 }))
 
-export const Phonebook = withRouter((props:PhonebookProps) => {
+export const CarInventory = withRouter((props:CarInventoryProps) => {
 
     console.log(props);
     const { history } = props;
@@ -199,16 +199,8 @@ export const Phonebook = withRouter((props:PhonebookProps) => {
             onClick: () => history.push('/')
         },
         {
-            text: 'Sign in',
+            text: 'Sign Out',
             onClick: () => history.push('/signin')
-        },
-        {
-            text: 'About',
-            onClick: () => history.push('/about')
-        },
-        {
-            text: 'Contact',
-            onClick: () => history.push('/contact')
         },
     ];
 
@@ -230,7 +222,7 @@ export const Phonebook = withRouter((props:PhonebookProps) => {
                         <DialogTitle id="form-dialog-title">Add New Contact</DialogTitle>
                         <DialogContent>
                             <DialogContentText></DialogContentText>
-                            <ContactForm />
+                            <CarForm />
                         </DialogContent>
                         <DialogActions>
                             <Button onClick={handleDialogClickClose} color="primary">Cancel</Button>

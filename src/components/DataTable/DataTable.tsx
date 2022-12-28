@@ -7,7 +7,7 @@ import { Button, Dialog,
     DialogContent,
     DialogContentText,
     DialogTitle } from '@material-ui/core';
-import { ContactForm } from '../ContactForm';
+import { CarForm } from '../CarForm';
 
 const columns: GridColDef[] = [
   { field: 'id', headerName: 'ID', width: 90, hide: true },
@@ -15,9 +15,6 @@ const columns: GridColDef[] = [
   { field: 'brand', headerName: 'Brand', flex: 1 },
   { field: 'model', headerName: 'Model', flex: 1 },
   { field: 'price', headerName: 'Price', flex: 1 },
-  { field: 'zero_to_sixty', headerName: 'Zero to Sixty', flex: 1 },
-  { field: 'top_speed', headerName: 'Top Speed', flex: 1 },
-  { field: 'gas', headerName: 'Gas', flex: 1 }
 ];
 
 interface gridData {
@@ -54,7 +51,7 @@ export const DataTable = () => {
     <div style = {{ height: 400, width: '100%' }}>
       <h2>My Cars</h2>
 
-      <DataGrid rows={carData} columns = { columns } pageSize = { 5 } checkboxSelection = {true}
+      <DataGrid rows={carData} columns = { columns } pageSize = { 5 } rowsPerPageOptions = {[5, 10, 15]} checkboxSelection = {true}
       onSelectionModelChange = { (item) => {
         setSelectionModel(item)
       }} />
@@ -67,7 +64,7 @@ export const DataTable = () => {
         <DialogTitle id="form-dialog-title">Update Car {selectionModel}</DialogTitle>
         <DialogContent>
           <DialogContentText>Update Car</DialogContentText>
-            <ContactForm id={selectionModel!} />
+            <CarForm id={selectionModel!} />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">Cancel</Button>

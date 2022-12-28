@@ -1,12 +1,12 @@
 import React from 'react';
 import { useDispatch, useSelector, useStore } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { chooseYear, chooseBrand, chooseModel, choosePrice, chooseZeroToSixty, chooseTopSpeed, chooseGas } from '../../redux/slices/RootSlice';
+import { chooseYear, chooseBrand, chooseModel, choosePrice } from '../../redux/slices/RootSlice';
 import { Input } from '../SharedComponents/Input';
 import { Button } from '@material-ui/core';
 import { server_calls } from '../../api';
 
-interface ContactFormProps {
+interface CarFormProps {
   id?: string;
   data?: {};
 };
@@ -16,12 +16,9 @@ interface ContactState {
   brand: string;
   model: string;
   price: number;
-  zero_to_sixty: string;
-  top_speed: string;
-  gas: boolean;
 };
 
-export const ContactForm = (props:ContactFormProps) => {
+export const CarForm = (props:CarFormProps) => {
 
   const dispatch = useDispatch();
   const store = useStore();
@@ -41,9 +38,6 @@ export const ContactForm = (props:ContactFormProps) => {
       dispatch(chooseBrand(data.brand));
       dispatch(chooseModel(data.model));
       dispatch(choosePrice(data.price));
-      dispatch(chooseZeroToSixty(data.zero_to_sixty));
-      dispatch(chooseTopSpeed(data.top_speed));
-      dispatch(chooseGas(data.gas));
       server_calls.create(store.getState());
       setTimeout( () => {window.location.reload()}, 1000)
     }
@@ -66,18 +60,6 @@ export const ContactForm = (props:ContactFormProps) => {
           <div>
             <label htmlFor='price'>Price</label>
             <input {...register('price')} name="price" placeholder='Price' />
-          </div>
-          <div>
-            <label htmlFor='zerotosixty'>Zero To Sixty</label>
-            <input {...register('zerotosixty')} name="zerotosixty" placeholder='0-60' />
-          </div>
-          <div>
-            <label htmlFor='topspeed'>Top Speed</label>
-            <input {...register('topspeed')} name="topspeed" placeholder='Top Speed' />
-          </div>
-          <div>
-            <label htmlFor='gas'>Gas</label>
-            <input {...register('gas')} name="gas" placeholder='Gas' />
           </div>
           <Button type='submit'>Submit</Button>
         </form>

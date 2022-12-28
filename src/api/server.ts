@@ -1,4 +1,4 @@
-let token = 'b674ee1cf45ca5e81a4f99c41bffe245584020b353989699';
+let token = '4cac3772305c2fd9a136ff330f9da3c8fe876c009560c0cd';
 
 export const server_calls = {
     get: async () => {

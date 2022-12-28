@@ -2,14 +2,14 @@ import React, { Suspense } from 'react';
 import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import Digits from '../../assets/images/digitlogo.png';
+import Car from '../../assets/images/Car_brand.svg';
 import { AuthCheck } from 'reactfire';
 
 
 const useStyles = makeStyles({
     logo: {
-        content: `url(${Digits})`,
-        maxWidth: '20%',
+        content: `url(${Car})`,
+        maxWidth: '10%',
         height: 'auto',
     },
     navlogo: {
@@ -86,8 +86,13 @@ export const Navbar = () => {
                         }>
                             <li>
                                 <Button>
-                                    <Link to='/Phonebook' className={`${classes.navbarItem} ${classes.psides}`}>My Phonebook</Link>
+                                    <Link to='/Phonebook' className={`${classes.navbarItem} ${classes.psides}`}>My Car Inventory</Link>
                                 </Button>
+                            </li>
+                            <li>
+                            <Button>
+                                <Link to='/SignIn' className={`${classes.navbarItem} ${classes.psides}`}>Sign Out</Link>
+                            </Button>
                             </li>
                         </AuthCheck>
                     </Suspense>
