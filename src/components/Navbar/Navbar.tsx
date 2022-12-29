@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import { makeStyles } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import Car from '../../assets/images/Car_brand.svg';
+import Car from '../../assets/images/City_driver.svg';
 import { AuthCheck } from 'reactfire';
 
 
